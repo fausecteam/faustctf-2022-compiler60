@@ -1,0 +1,33 @@
+'BEGIN'
+'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+;
+
+	'IF' 1 < 2 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 1 ≤ 2 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 1 < 1 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 1 ≤ 1 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 2 < 1 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 2 ≤ 1 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	outstring ("\n");
+
+	'IF' 1 > 2 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 1 ≥ 2 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 1 > 1 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 1 ≥ 1 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 2 > 1 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 2 ≥ 1 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	outstring ("\n");
+
+	'IF' 2 = 1 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 2 = 2 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 2 = 3 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	outstring ("\n");
+
+	'IF' 2 ≠ 1 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	'IF' 2 ≠ 2 'THEN' outinteger (0) 'ELSE' outinteger (1);
+	'IF' 2 ≠ 3 'THEN' outinteger (1) 'ELSE' outinteger (0);
+	outstring ("\n");
+
+'END'

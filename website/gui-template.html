@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ALGOL60v2 Playground</title>
+  <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <style>
+    {% include './website/styles.css' %}
+  </style>
+  <style>
+    {% include './website/retro.css' %}
+  </style>
+</head>
+<body class="flex-column">
+  <div class="flex-row">
+    <div>
+      <h1>ALGOL60v2 Playground</h1>
+      <a id="open-spec">Open Specification</a>
+    </div>
+    <div class="flex-column" style="margin-left: auto; margin-right: 20px;">
+      <span class="bold">Example Programs:</span>
+      <select id="example-source-select">
+        {% for filename in example_filenames %}
+          <option>{{ filename }}</option>
+        {% endfor %}
+      </select>
+      <span class="bold">Target:</span>
+      <div id="target-ip" class="flex-row">
+        fd66:666:<input id="team-num" maxlength="4" value="1"></input>::2
+      </div>
+    </div>
+    <div class="flex-column">
+      <button id="download-elf">Compile & Download ELF</button>
+      <button id="execute">Compile & Execute</button>
+    </div>
+  </div>
+  <div id="editor-result" class="flex-column">
+    <div id="editor"></div>
+    <div id="result">Not yet executed</div>
+  </div>
+
+  <div id="md-overlay" class="hidden">
+    <div class="md">
+      {% filter markdown %}
+      {% include './compiler/ALGOL60v2-spec.md' %}
+      {% endfilter %}
+    </div>
+  </div>
+  <div id="close-spec" class="hidden">Close ☓</div>
+
+  <script src="https://unpkg.com/monaco-editor@0.33.0/min/vs/loader.js"></script>
+  <script>
+    require.config({ baseUrl: 'https://unpkg.com/monaco-editor@0.33.0/min'}, true);
+  </script>
+  <script src="https://unpkg.com/monaco-editor@0.33.0/min/vs/editor/editor.main.js"></script>
+  <link
+    data-name="vs/editor/editor.main"
+    rel="stylesheet"
+    href="https://unpkg.com/monaco-editor@0.33.0/min/vs/editor/editor.main.css"/>
+  
+  <script>
+    {% include './website/script.js' %}
+  </script>
+</body>
+</html>

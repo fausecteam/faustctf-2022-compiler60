@@ -1,0 +1,23 @@
+
+'BEGIN'
+'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+;
+	'INTEGER' 'PROCEDURE' vfak (n);
+	'INTEGER' n;
+	'BEGIN'
+		'IF' n < 2 'THEN'
+			vfak := 1
+		'ELSE'
+			vfak := n × vfak (n - 1)
+	'END';
+
+	'INTEGER' i;
+
+	i := vfak (5);
+
+	outinteger (i);
+	outstring ("\n")
+
+'END'

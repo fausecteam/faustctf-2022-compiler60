@@ -1,0 +1,26 @@
+'BEGIN'
+'STRING' a,b[166],aa,bb[206];
+a:="'BEGIN'
+'STRING' a,b[166],aa,bb[206];
+a:=";
+b:=";
+aa:=a+integer2string(1);
+aa[41]:=34;
+bb:=integer2string(1)+b+integer2string(1);
+bb[0]:=34;
+bb[166]:=34;
+b[146]:=34;
+b[152]:=34;
+outstring(aa+aa+X;
+b:=X+bb+b)
+'END'";
+aa:=a+integer2string(1);
+aa[41]:=34;
+bb:=integer2string(1)+b+integer2string(1);
+bb[0]:=34;
+bb[166]:=34;
+b[146]:=34;
+b[152]:=34;
+outstring(aa+aa+";
+b:="+bb+b)
+'END'

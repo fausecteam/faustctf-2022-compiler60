@@ -1,0 +1,9 @@
+'BEGIN'
+  'INTEGER' 'PROCEDURE' foo;
+    'STRING' a, b[10];
+    foo 
+    :=
+    b
+  ;
+  foo
+'END'

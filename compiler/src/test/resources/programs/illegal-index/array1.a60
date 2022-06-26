@@ -1,0 +1,11 @@
+'BEGIN'
+  'BEGIN'
+    'INTEGER' 'ARRAY' arr[6];
+    'INTEGER' i;
+    'FOR' i := 5 'STEP' -1 'UNTIL' -1 'DO' 'BEGIN'
+      arr[i] := i+65;
+      outchar(arr[i]);
+      outchar(10);
+    'END'
+  'END'
+'END'

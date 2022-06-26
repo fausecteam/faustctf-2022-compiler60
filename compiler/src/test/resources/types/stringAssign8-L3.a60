@@ -1,0 +1,6 @@
+'BEGIN'
+  'STRING' foobar[9];
+  foobar 
+  := 
+  "1234\1231234"
+'END'

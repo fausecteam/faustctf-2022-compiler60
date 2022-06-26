@@ -1,0 +1,44 @@
+'BEGIN'
+    'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+        evaluation ordering:
+    ;
+
+    'INTEGER' 'PROCEDURE' printret (val);
+      'INTEGER' val;
+    'BEGIN'
+        outinteger (val);
+        outchar(32);
+         printret := val;
+    'END';
+
+    'BEGIN' 'COMMENT' part 1 ;
+
+        outstring ("eval 4 + 5 + 6:  ");
+        outinteger ( printret (4) + printret (5) + printret (6));
+        outstring ( "\n");
+
+        outstring ( "eval 2 × 3 × 4:  ");
+        outinteger ( printret (2) × printret (3) × printret (4));
+        outstring ( "\n");
+
+        outstring ( "eval 24 ÷ 3 ÷ 4:  ");
+        outinteger ( printret (24) ÷ printret (3) ÷ printret (4));
+        outstring ( "\n");
+
+        outstring ( "eval 24 ÷ 5 ÷ 2:  ");
+        outinteger ( printret (24) ÷ printret (5) ÷ printret (2));
+        outstring ( "\n");
+
+    'BEGIN'
+        'INTEGER' a, j;
+        a := 12;
+        j := 3;
+        'IF' (printret (12) × (printret (6) ÷ 
+            printret (2)) = printret (12) 
+            ∧ printret(6) < printret (2)) 'THEN'
+            outstring("T") 'ELSE' outstring("F")
+    'END'
+    'END'
+'END'

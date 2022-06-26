@@ -1,0 +1,12 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' foo;
+       foo := 1
+     ;
+    'INTEGER' a;
+    'INTEGER' 'ARRAY' v[4];
+    'FOR' a := 1 'WHILE' 
+    v 
+    ≠ foo
+    'DO'
+      a :=  a +1;
+'END'

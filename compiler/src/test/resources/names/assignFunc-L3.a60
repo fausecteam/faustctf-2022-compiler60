@@ -1,0 +1,4 @@
+'BEGIN'
+   'PROCEDURE' asdf;
+      asdf := 1;
+'END'

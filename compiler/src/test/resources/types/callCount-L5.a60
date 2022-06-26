@@ -1,0 +1,8 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' abs(i);
+      'INTEGER' i;
+      abs := 
+      abs(1,2)
+    ;
+    abs(2)
+'END'

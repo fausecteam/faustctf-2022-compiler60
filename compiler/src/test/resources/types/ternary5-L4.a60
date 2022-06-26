@@ -1,0 +1,6 @@
+'BEGIN'
+    'STRING' foobar[3];
+    foobar[1] := 
+    'IF'
+    1=1 'THEN' 1 'ELSE' foobar
+'END'

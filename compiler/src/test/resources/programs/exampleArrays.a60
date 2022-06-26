@@ -1,0 +1,43 @@
+'BEGIN'
+  'INTEGER' 'ARRAY' arr[10],
+    primes[7];
+  
+  'PROCEDURE' factors(n);
+    'INTEGER' n, i;
+  'BEGIN'
+    outstring("factors of " + integer2string(n) + ": ");
+    'FOR' i := 0 'STEP' 1 'UNTIL' 6 'DO'
+      'IF' (n ÷ primes[i]) × primes[i] = n 'THEN' 'BEGIN'
+        outinteger(primes[i]);
+        outstring(" ");
+        n := n ÷ primes[i];
+        i := i - 1 
+      'END';
+    outstring("\n");
+  'END'; 
+  
+  arr[0] := 1;
+  arr[arr[0]] := arr[0] + 1;
+  arr[arr[1]] := arr[1] + 1;     
+  arr[arr[2]] := arr[2] + 1;
+  
+  outinteger(arr[0]);
+  outchar(10);
+  outinteger(arr[1]);
+  outchar(10);  
+  outinteger(arr[2]);
+  outchar(10);
+  
+  primes[0] := 2;     
+  primes[1] := 3;     
+  primes[2] := 5;     
+  primes[3] := 7;     
+  primes[4] := 11;     
+  primes[5] := 13;     
+  primes[6] := 17;
+  
+  factors(9);
+  factors(125);
+  factors(136);
+  factors(44100)
+'END'

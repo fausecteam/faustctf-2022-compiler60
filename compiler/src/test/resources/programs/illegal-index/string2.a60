@@ -1,0 +1,17 @@
+'BEGIN'
+  'STRING' hex[7];
+  hex := "\x0A\x0B\x0C\x0D\x0E\x0F";
+  outinteger(hex[0]);
+  outchar(10);
+  outinteger(hex[5]);
+  outchar(10);
+  outinteger(hex[6]);
+  outchar(10);
+  hex := "abcde";
+  outinteger(hex[0]);
+  outchar(10);
+  outinteger(hex[5]);
+  outchar(10);
+  outinteger(hex[6]);
+  outchar(10);
+'END'

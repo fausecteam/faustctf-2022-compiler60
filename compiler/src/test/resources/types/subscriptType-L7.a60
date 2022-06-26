@@ -1,0 +1,9 @@
+'BEGIN'
+    'PROCEDURE' nix;
+      'BEGIN''END' 
+    ;
+    'INTEGER' b;
+    b := 
+    nix
+    [1]
+'END'

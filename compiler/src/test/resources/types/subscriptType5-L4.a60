@@ -1,0 +1,8 @@
+'BEGIN'
+    'INTEGER' z;
+    'INTEGER''PROCEDURE' foobar;
+      z := foobar
+      [2]
+    ;
+    foobar
+'END'

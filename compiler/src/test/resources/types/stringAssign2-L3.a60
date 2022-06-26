@@ -1,0 +1,6 @@
+'BEGIN'
+  'STRING' y, z[1], a, b[10];
+  z 
+  := 
+  " "
+'END'

@@ -1,0 +1,7 @@
+'BEGIN'
+   'INTEGER' 'PROCEDURE' foo;
+      foo := 1;
+      
+   'INTEGER' 'PROCEDURE' bar;
+     foo := foo;
+'END'

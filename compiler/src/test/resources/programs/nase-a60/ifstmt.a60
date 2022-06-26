@@ -1,0 +1,33 @@
+
+'BEGIN'
+	'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+		some if stmts ...
+	;
+
+	'PROCEDURE' out (x); 
+	  'INTEGER' x; 
+	'BEGIN'
+	    outinteger (x);
+	    outchar(10)
+	'END';
+
+	'IF' 1=1 'THEN' out (1);
+	out (2);
+	'IF' 0=1 'THEN' out (3);
+	out (4);
+	'IF' 1=1 'THEN' out (5) 'ELSE' out (6);
+	out (7);
+	'IF' 0=1 'THEN' out (8) 'ELSE' out (9);
+	out (10);
+	'IF' 1=1 'THEN' 'BEGIN'
+		'IF' 1=1 'THEN' out (11) 'ELSE' out (12)
+	'END';
+	out (13);
+	'IF' 0=1 'THEN'
+		out (14)
+	'ELSE'
+		'IF' 1=1 'THEN' out (15) 'ELSE' out (16);
+	out (17);
+'END'

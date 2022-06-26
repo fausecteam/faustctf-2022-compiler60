@@ -1,0 +1,8 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' a[1];
+    
+    'INTEGER' 'PROCEDURE' a
+    (a);
+      'INTEGER' a;
+      a := 1;
+'END'

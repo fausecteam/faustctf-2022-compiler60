@@ -1,0 +1,16 @@
+'BEGIN'
+  'STRING' y, z[9], a, b[17];
+  'STRING' foobar[5];
+  b := "0123456789äöü";
+  outstring(b);
+  outchar(13);
+  outchar(10);
+  z := "😀🤫";
+  outstring(z);
+  outchar(13);
+  outchar(10);
+  foobar := "\r\n\\\t";
+  outstring(foobar);
+  outchar(13);
+  outchar(10)
+'END'

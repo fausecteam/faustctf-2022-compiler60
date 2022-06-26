@@ -1,0 +1,11 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' abs(i);
+       'INTEGER' i;
+       abs := 3
+     ;
+
+    'INTEGER' 'ARRAY' i[2], y[22];
+    i 
+    := 
+    abs(3)
+'END'

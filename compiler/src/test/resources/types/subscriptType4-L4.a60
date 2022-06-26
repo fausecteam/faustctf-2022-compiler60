@@ -1,0 +1,8 @@
+'BEGIN'
+    'INTEGER' z;
+    'INTEGER''PROCEDURE' abs;
+      abs
+      [1]:= 1
+    ;
+    abs
+'END'

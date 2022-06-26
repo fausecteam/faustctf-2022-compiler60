@@ -1,0 +1,13 @@
+'BEGIN'
+  'STRING' x[20];
+  'INTEGER' 'PROCEDURE' foobar(
+  x
+  );
+    'STRING' x[20];
+    foobar := x[0]
+  ;  
+  x := "asdf";
+  outstring(x);
+  x[0] := 32;
+  outstring(x)
+'END'

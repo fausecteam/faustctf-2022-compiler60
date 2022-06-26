@@ -1,0 +1,17 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' foobar(a1, a2) other :(a3, 
+        a4, a5);
+      'INTEGER' a1, a2;
+      'INTEGER' a3, a4, a5;
+    'BEGIN'
+      a5 := a5 - a1;
+      a3 := a2 + a4;
+    'END';
+    foobar(
+    foobar(1,2,3,4,5),
+    foobar(1,2,3,4,5))
+    other : (
+    foobar(1,2,3,4,5),
+    foobar(1,2,3,4,5)
+    )
+'END'

@@ -1,0 +1,10 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' baz(i);
+      'INTEGER' i;
+      baz := 1
+    ;
+    'INTEGER' 'ARRAY' arr[42];
+    outstring(
+     baz
+     (55))
+'END'

@@ -1,0 +1,14 @@
+'BEGIN'
+    
+    'PROCEDURE' xyz(a1, a2) other :(a3, 
+        a4);
+      'INTEGER' a1, a2;
+      'INTEGER' a3, a4;
+    'BEGIN'
+      a2 := a3 - a1;
+      a4 := a2 + a4;
+    'END';
+    xyz(
+    xyz(1,2,3,4),
+    2) other : (4,3)
+'END'

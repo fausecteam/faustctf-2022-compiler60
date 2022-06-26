@@ -1,0 +1,10 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' nop;
+       nop := 1
+     ;
+
+    'STRING' i[2], y[22];
+    y[1] := 'IF' 1 = 
+    i 
+    'THEN' 1 'ELSE' nop
+'END'

@@ -1,0 +1,5 @@
+'BEGIN'
+  'STRING' result[4];
+  result
+  := "aa" + "bb" 
+'END'

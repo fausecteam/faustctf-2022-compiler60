@@ -1,0 +1,47 @@
+'BEGIN'
+  'INTEGER' a, b;
+
+  'PROCEDURE' arithmetic(a,b);
+    'INTEGER' a, b;
+  'BEGIN'
+    outstring(integer2string(a) + " + " + integer2string(b) + " = " + integer2string(a + b) + "\n");
+    outstring(integer2string(a) + " - " + integer2string(b) + " = " + integer2string(a - b) + "\n");
+    outstring(integer2string(a) + " × " + integer2string(b) + " = " + integer2string(a × b) + "\n");
+    outstring(integer2string(a) + " ÷ " + integer2string(b) + " = " + integer2string(a ÷ b) + "\n");
+  'END';
+  
+  'PROCEDURE' compare(a,b);
+    'INTEGER' a, b;
+  'BEGIN'
+    outstring(integer2string(a) + " < " + integer2string(b) + " = " + ('IF' a < b 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring(integer2string(a) + " ≤ " + integer2string(b) + " = " + ('IF' a ≤ b 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring(integer2string(a) + " = " + integer2string(b) + " = " + ('IF' a = b 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring(integer2string(a) + " ≥ " + integer2string(b) + " = " + ('IF' a ≥ b 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring(integer2string(a) + " > " + integer2string(b) + " = " + ('IF' a > b 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring(integer2string(a) + " ≠ " + integer2string(b) + " = " + ('IF' a ≠ b 'THEN' "True" 'ELSE' "False") + "\n");  
+  'END';
+  
+  'PROCEDURE' logical;
+  'BEGIN'
+    outstring("1 = 1 = " + ('IF' 1 = 1 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring("0 = 1 = " + ('IF' 0 = 1 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring("¬(1 = 1) = " + ('IF' ¬(1 = 1) 'THEN' "True" 'ELSE' "False") + "\n");  
+    outstring("¬(0 = 1) = " + ('IF' ¬(0 = 1) 'THEN' "True" 'ELSE' "False") + "\n");
+    
+    outstring("(0 = 1)∧(1 = 1) = " + ('IF' (1 = 1)∧(0 = 1) 'THEN' "True" 'ELSE' "False") + "\n"); 
+    outstring("(1 = 1)∨(0 = 1) = " + ('IF' (1 = 1)∨(0 = 1) 'THEN' "True" 'ELSE' "False") + "\n"); 
+    outstring("(1 = 1)⊃(0 = 1) = " + ('IF' (1 = 1)⊃(0 = 1) 'THEN' "True" 'ELSE' "False") + "\n"); 
+  'END';
+  
+  a := 3;
+  b := 3;
+  arithmetic(a, b);
+  compare(a, b);
+  
+  a := 122;
+  b := 2;
+  arithmetic(a, b);
+  compare(a, b);
+  
+  logical
+'END'

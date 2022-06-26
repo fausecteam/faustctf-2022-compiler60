@@ -1,0 +1,10 @@
+'BEGIN'
+    'STRING' str[33];
+    'INTEGER' a;
+    str := "33";
+    a := a + ('IF' 
+    str[0] >
+    str
+    'THEN' str[1]
+    'ELSE' str[2])
+'END'

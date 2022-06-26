@@ -1,0 +1,9 @@
+'BEGIN'
+    'STRING' str[4];
+    'INTEGER' b;
+    str := "\n";
+    'FOR' b := 
+    str
+    'WHILE' b = 0 'DO'
+    'BEGIN''END'
+'END'

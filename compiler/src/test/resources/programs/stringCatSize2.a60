@@ -1,0 +1,23 @@
+'BEGIN'
+  'PROCEDURE' foobar;
+  'BEGIN'
+    'STRING' one, two[3], three[5];
+    three := "\x61\x62" + "\141\142";
+    outstring(three);
+    two := "\x78\171";
+    one := "\170\x79";
+    three := one + two;
+    outstring(three);
+  'END';
+
+  'STRING' one, two[3], three[5];
+  three := "\x41\102" + "AB";
+  outstring(three);
+  one := "12";
+  two := "\x31\x32";
+  three := one + two;
+  outstring(three);
+
+  outchar(10);
+  foobar
+'END'

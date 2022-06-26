@@ -1,0 +1,27 @@
+'BEGIN'
+  'BEGIN'
+    'STRING' s[52];
+    s := "This is how to use double quotes in a string: <\\\">\n";
+    outstring(s)
+  'END';
+  'BEGIN'
+    'STRING' s[48];
+    s := "It may even contain newlines
+one
+two
+three
+nope";
+    outstring(s);
+    outchar(10)
+  'END';
+  'BEGIN'
+    'STRING' s[38];
+    s := "We like our german umlauts: öäüß\n";
+    outstring(s)
+  'END';
+  'BEGIN'
+    'STRING' s[43];
+    s := "Get all the flags: 🏳️ 🏴 🏁 🚩\n";
+    outstring(s)
+  'END';
+'END'

@@ -1,0 +1,58 @@
+'BEGIN'
+  'COMMENT' from https://stackoverflow.com/a/25837097 ;
+  
+  'INTEGER' 'PROCEDURE' imod(a, b);
+    'INTEGER' a, b;
+    imod := a - (a ÷ b) × b;
+  
+  'PROCEDURE' writePadded(value, len);
+    'INTEGER' value, len,
+      i, t;
+  'BEGIN'
+    i := len;
+    t := 10;
+    'FOR' i := i - 1 'WHILE' value ≥ t ∧ i > 0 'DO'
+      t := t × 10;
+    'FOR' i := i 'STEP' -1 'UNTIL' 1 'DO'
+      outinteger(0);
+    outinteger(value)
+  'END';
+  
+  'PROCEDURE' main;
+    'INTEGER' 'ARRAY' table[3500];
+    'INTEGER' nextDigits,
+      currDigits, 
+      digitsFactor,
+      c,
+      digits,
+      len;
+  'BEGIN'
+    digitsFactor := 100000000;
+    
+    nextDigits := 0;
+    currDigits := 0;
+    
+    digits := 1000;
+
+    len := digits ÷ 8 × 28;
+    
+    'FOR' c := 0 'STEP' 28 'UNTIL' len - 28 'DO' 'BEGIN'
+      'INTEGER' b;
+      'FOR' b := len - c 'STEP' -1 'UNTIL' 1 'DO' 'BEGIN'
+        'INTEGER' div factor;
+        nextDigits := nextDigits × b;
+        'IF' c = 0 'THEN'
+          nextDigits := nextDigits + 20000000 × digitsFactor
+        'ELSE'
+          nextDigits := nextDigits + table[len - b] × digitsFactor;       
+        div factor := b + b - 1;
+        table[len - b] := imod(nextDigits, div factor);
+        nextDigits := nextDigits ÷ div factor;
+      'END';
+      writePadded(currDigits + nextDigits ÷ digitsFactor, 8);
+      currDigits := imod(nextDigits, digitsFactor);
+      nextDigits := currDigits; 
+    'END'
+  'END';
+  main
+'END'

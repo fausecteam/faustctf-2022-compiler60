@@ -1,0 +1,7 @@
+'BEGIN'
+    'INTEGER' x;
+    'INTEGER' 'ARRAY' a[1];
+    x := 
+    a 
+    ÷ a 
+'END'

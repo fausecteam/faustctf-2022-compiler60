@@ -1,0 +1,10 @@
+'BEGIN'
+    'PROCEDURE' empty(x);
+      'INTEGER' x;
+      x := ((x))
+    ;
+    'STRING' b[42];
+    b[
+    empty(12)
+    ] := 34
+'END'

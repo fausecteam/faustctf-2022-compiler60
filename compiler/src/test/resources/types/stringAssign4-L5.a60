@@ -1,0 +1,8 @@
+'BEGIN'
+  'PROCEDURE' asdf;
+    'STRING' foobar[10001];
+    'STRING' foo   [10000];
+    foo := foobar
+  ;
+  asdf
+'END'

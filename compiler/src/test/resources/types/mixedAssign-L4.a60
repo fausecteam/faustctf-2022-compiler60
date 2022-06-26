@@ -1,0 +1,7 @@
+'BEGIN'
+  'INTEGER' x;
+  'STRING' y, z[20], a, b[10];
+  a 
+  :=
+  x
+'END'

@@ -1,0 +1,170 @@
+'BEGIN'
+    'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+        the serpinski (sp?) curve. a simple demo...
+    ;
+
+    'INTEGER' n, h0;
+
+    'INTEGER' i, h, x, y, x0, y0;
+    'INTEGER' peny, penx;
+    'INTEGER' 'ARRAY' scr [65,65];
+
+    'PROCEDURE' serp;
+    'BEGIN'
+      h := h0 ÷ 4;
+      x0 := h + h;  y0 := 3 × h;
+        
+      'FOR' i := 1 'STEP' 1 'UNTIL' n 'DO' 'BEGIN'
+        x0 := x0 - h;
+        h  := h  ÷ 2;
+        y0 := y0 + h;
+        x  := x0;
+        y  := y0;
+        setpen;
+        A (i);  x := x + h;  y := y - h;  movepen;
+        B (i);  x := x - h;  y := y - h;  movepen;
+        C (i);  x := x - h;  y := y + h;  movepen;
+        D (i);  x := x + h;  y := y + h;  movepen;
+      'END'
+    'END';
+
+    'PROCEDURE' A (i);
+      'INTEGER' i;
+    'BEGIN'
+        'IF' i > 0 'THEN' 'BEGIN'
+            A (i-1);  x := x + h;  y := y - h;  movepen;
+            B (i-1);  x := x + 2 × h;  movepen;
+            D (i-1);  x := x + h;  y := y + h;  movepen;
+            A (i-1)
+        'END'
+    'END';
+
+
+    'PROCEDURE' B (i);
+      'INTEGER' i;
+    'BEGIN'
+        'IF' i > 0 'THEN' 'BEGIN'
+            B (i-1);  x := x - h;  y := y - h;  movepen;
+            C (i-1);  y := y - 2 × h;  movepen;
+            A (i-1);  x := x + h;  y := y - h;  movepen;
+            B (i-1)
+
+        'END'
+    'END';
+
+    'PROCEDURE' C (i);
+      'INTEGER' i;
+    'BEGIN'
+        'IF' i > 0 'THEN' 'BEGIN'
+            C (i-1);  x := x - h;  y := y + h;  movepen;
+            D (i-1);  x := x - 2 × h;  movepen;
+            B (i-1);  x := x - h;  y := y - h;  movepen;
+            C (i-1)
+
+        'END'
+    'END';
+
+    'PROCEDURE' D (i);
+      'INTEGER' i;
+    'BEGIN'
+        'IF' i > 0 'THEN' 'BEGIN'
+            D (i-1);  x := x + h;  y := y + h;  movepen;
+            A (i-1);  y := y + 2 × h;  movepen;
+            C (i-1);  x := x - h;  y := y + h;  movepen;
+            D (i-1)
+
+        'END'
+    'END';
+    
+    'PROCEDURE' setpen;
+    'BEGIN'
+        penx := x;
+        peny := y
+    'END';
+
+
+    'PROCEDURE' xline (y) x Coords: (x1, x2);
+      'INTEGER' y, x1, x2;
+    'BEGIN'
+        'INTEGER' xi;
+        'FOR' xi := x1 'STEP' 1 'UNTIL' x2 'DO'
+            scr [y, xi] := 1
+    'END';
+
+    'PROCEDURE' yline (x) yCoords: (y1, y2);
+      'INTEGER' x, y1, y2;
+    'BEGIN'
+        'INTEGER' yi;
+        'FOR' yi := y1 'STEP' 1 'UNTIL' y2 'DO'
+            scr [yi, x] := 1
+    'END';
+
+    'PROCEDURE' drline (y1, x1) to: (y2, x2);
+      'INTEGER' y1, x1, y2, x2;
+    'BEGIN'
+        'INTEGER' i, dx, dy;
+        dy := 'IF' y1 < y2 'THEN' 1 'ELSE' -1;
+        dx := 'IF' x1 < x2 'THEN' 1 'ELSE' -1;
+        'FOR' i := 0 'STEP' 1 'UNTIL' dy × (y2-y1) 'DO'
+          scr [y1 + dy × i, x1 + dx × i] := 1
+    'END';
+
+    'INTEGER' 'PROCEDURE' min (x, y);
+      'INTEGER' x, y;
+    'IF' x < y 'THEN' min := x
+        'ELSE' min := y;
+        
+    'INTEGER' 'PROCEDURE' max (x, y);
+      'INTEGER' x, y;
+    'IF' x > y 'THEN' max := x
+        'ELSE' max := y;
+
+    'PROCEDURE' movepen;
+    'BEGIN'
+
+        'IF' penx = x 'THEN'
+            yline (x) yCoords: (min (y, peny), max (y, peny))
+        'ELSE' 'IF' peny = y 'THEN'
+            xline (y, min (x, penx), max (x, penx))
+        'ELSE'
+            drline (peny, penx) to coords: (y, x);
+
+        penx := x;
+        peny := y
+    'END';
+
+    'COMMENT'
+        This is the main program:
+    ;
+    
+    h0 := 64;    'COMMENT'  'window' width ÷ height (power of 2) ;
+    
+    'COMMENT'  recursion deep 2 and 3;
+    'FOR' n := 2 'STEP' 1 'UNTIL' 3 'DO' 'BEGIN'
+        'INTEGER' i, j;
+
+        'COMMENT'  cleanup the screen ;
+    
+        'FOR' j := 0 'STEP' 1 'UNTIL' h0 'DO'
+            'FOR' i := 0 'STEP' 1 'UNTIL' h0 'DO'
+                scr [j, i] := 0;
+
+        serp;
+
+        'COMMENT'  print the screen ;
+
+        'FOR' j := 0 'STEP' 1 'UNTIL' h0 'DO' 'BEGIN'
+            'FOR' i := 0 'STEP' 1 'UNTIL' h0 'DO'
+                'IF' scr [j, i] ≠ 0 'THEN'
+                    outstring ("##")
+                'ELSE'
+                    outstring ("  ");
+            outstring ("\n")
+        'END';
+        outstring ("\n");        
+    'END'
+'END'
+
+

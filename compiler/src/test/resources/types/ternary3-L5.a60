@@ -1,0 +1,7 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' x[4], y[4];
+    x[1] := 
+    'IF' 1=1 'THEN' 
+    y
+    'ELSE' x
+'END'

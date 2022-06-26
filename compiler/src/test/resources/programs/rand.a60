@@ -1,0 +1,50 @@
+'BEGIN'
+  'COMMENT' 
+   rand/srand like in libc
+   shamelessly copied from https://stackoverflow.com/a/26630526;
+  
+  'INTEGER' 'ARRAY' r[344];
+  
+  'INTEGER' n;
+  
+  'INTEGER' 'PROCEDURE' imod(a, b);
+      'INTEGER' a, b;
+    imod := a - (a ÷ b) × b;
+  
+  'PROCEDURE' srand(seed);
+    'INTEGER' seed, i;
+  'BEGIN'
+    r[0] := seed;
+    'FOR' i := 1 'STEP' 1 'UNTIL' 30 'DO'
+      r[i] :=  imod(16807 × r[i-1], 2147483647);
+    'FOR' i := 31 'STEP' 1 'UNTIL' 33 'DO'
+      r[i] := r[i-31];
+    'FOR' i := 34 'STEP' 1 'UNTIL' 343 'DO'
+      r[i] := r[i-31] + r[i-3];
+    n := 0;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' rand;
+    'INTEGER' x;
+  'BEGIN'
+    x := r[imod(n + 313, 344)] + r[imod(n + 341, 344)];
+    x := imod(x, 4294967296);
+    r[n] := x;
+    n := imod(n+1, 344);
+    rand := x ÷ 2;
+  'END';
+
+  'PROCEDURE' test(seed);
+    'INTEGER' seed, i;
+  'BEGIN'
+    srand(seed);
+    
+    'FOR' i := 1 'STEP' 1 'UNTIL' 5 'DO' 'BEGIN'
+      outinteger(rand);
+      outchar(10);
+    'END'  
+  'END';
+  
+  test(42);
+  test(1337)
+'END'

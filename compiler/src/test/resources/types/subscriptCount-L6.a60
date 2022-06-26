@@ -1,0 +1,8 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' drei;
+      drei := 3
+    ;
+    'INTEGER' 'ARRAY' baz[3];
+    baz[drei, drei]
+    := 33
+'END'

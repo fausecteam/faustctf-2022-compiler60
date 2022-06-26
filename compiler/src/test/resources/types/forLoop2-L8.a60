@@ -1,0 +1,11 @@
+'BEGIN'
+    'PROCEDURE' asdf(a);
+      'INTEGER' a;
+      a := a + 1
+    ;
+    'INTEGER' a;
+    'FOR' a := 
+    asdf(2) 
+    'DO'
+    'BEGIN''END'
+'END'

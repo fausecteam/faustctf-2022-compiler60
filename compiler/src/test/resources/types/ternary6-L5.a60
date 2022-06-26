@@ -1,0 +1,7 @@
+'BEGIN'
+    'STRING' a, b[2];
+    'INTEGER' x;
+    outstring(
+    'IF'
+    1=1 'THEN' a 'ELSE' x)
+'END'

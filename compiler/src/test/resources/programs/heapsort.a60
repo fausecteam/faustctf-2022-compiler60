@@ -1,0 +1,87 @@
+'BEGIN'
+  'INTEGER' 'ARRAY' heap[10000];
+  
+  'PROCEDURE' heapify(len, parent);
+    'INTEGER' len, parent, doLoop;
+  'FOR' doLoop := 1, doLoop 'WHILE' doLoop ≠ 0 'DO' 'BEGIN'
+    'INTEGER' left, right,
+      largest,
+      swap;
+    left := parent + parent + 1;
+    right := parent + parent + 2;
+    largest := parent;
+    'IF' left < len ∧ heap[left] > heap[largest] 'THEN'
+      largest := left;
+    'IF' right < len ∧ heap[right] > heap[largest] 'THEN'
+      largest := right;
+    'IF' parent ≠ largest 'THEN' 'BEGIN'
+      swap := heap[parent];
+      heap[parent] := heap[largest];
+      heap[largest] := swap;
+      parent := largest;
+    'END' 'ELSE'
+      doLoop := 0;
+  'END';
+  
+  'PROCEDURE' sort(len);
+    'INTEGER' len,
+      i, j,
+      swap;
+  'BEGIN'
+    'COMMENT' build heap ;
+    'FOR' i := len ÷ 2 - 1 'STEP' -1 'UNTIL' 0 'DO'
+      heapify(len, i);  
+    'FOR' i := len - 1 'STEP' -1 'UNTIL' 1 'DO' 'BEGIN'
+      'COMMENT' move root to end;
+      swap := heap[0];
+      heap[0] := heap[i];
+      heap[i] := swap;
+      'COMMENT' reheap ;
+      heapify(i, 0);
+    'END'      
+  'END';
+  
+  'COMMENT' 
+   rand/srand like in libc
+   shamelessly copied from https://stackoverflow.com/a/26630526;
+  'INTEGER' 'ARRAY' r[344];
+  'INTEGER' n;
+  'INTEGER' 'PROCEDURE' imod(a, b);
+      'INTEGER' a, b;
+    imod := a - (a ÷ b) × b;
+  'PROCEDURE' srand(seed);
+    'INTEGER' seed, i;
+  'BEGIN'
+    r[0] := seed;
+    'FOR' i := 1 'STEP' 1 'UNTIL' 30 'DO'
+      r[i] :=  imod(16807 × r[i-1], 2147483647);
+    'FOR' i := 31 'STEP' 1 'UNTIL' 33 'DO'
+      r[i] := r[i-31];
+    'FOR' i := 34 'STEP' 1 'UNTIL' 343 'DO'
+      r[i] := r[i-31] + r[i-3];
+    n := 0;
+  'END';
+  'INTEGER' 'PROCEDURE' rand;
+    'INTEGER' x;
+  'BEGIN'
+    x := r[imod(n + 313, 344)] + r[imod(n + 341, 344)];
+    x := imod(x, 4294967296);
+    r[n] := x;
+    n := imod(n+1, 344);
+    rand := x ÷ 2;
+  'END';
+  
+  'BEGIN'
+    'INTEGER' i,
+      len;
+    srand(42);
+    len := 10000;
+    'FOR' i := 0 'STEP' 1 'UNTIL' len - 1 'DO'
+      heap[i] := rand;
+    sort(len);
+    'FOR' i := 0 'STEP' 100 'UNTIL' len - 1 'DO' 'BEGIN'
+      outinteger(heap[i]);
+      outchar(10);
+    'END'
+  'END'
+'END'

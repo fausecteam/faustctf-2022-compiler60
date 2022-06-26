@@ -1,0 +1,23 @@
+'BEGIN'
+  'PROCEDURE' doit;
+  'BEGIN'
+    'STRING' aa[5], bb[5], cc[9];
+    cc := "123\n" + "\n987";
+    outstring(cc);
+    aa := "\tx\r\n";
+    bb := "\ty\r\n";
+    cc := aa + bb;
+    outstring(cc);
+  'END';
+
+  'STRING' aa[5], bb[5], cc[9];
+  cc := "1234" + "asdf";
+  outstring(cc);
+  bb := "fooo";
+  aa := "abcd";
+  cc := aa + bb;
+  outstring(cc);
+
+  outchar(10);
+  doit
+'END'

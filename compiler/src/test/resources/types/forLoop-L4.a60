@@ -1,0 +1,7 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' z[3];
+    'FOR' 
+    z 
+    := 1 'DO'
+    'BEGIN''END'
+'END'

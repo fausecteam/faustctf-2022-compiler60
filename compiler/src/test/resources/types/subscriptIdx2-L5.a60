@@ -1,0 +1,7 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' x[13];
+    'INTEGER' 'ARRAY' y[37];
+    x[1] := x[
+    y
+    ]
+'END'

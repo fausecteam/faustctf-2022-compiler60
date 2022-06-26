@@ -1,0 +1,19 @@
+'BEGIN'
+  'BEGIN'
+    'STRING' str[11];
+    str := "0123456789";
+    outinteger(str[0]);
+    outchar(10);
+    outinteger(str[9]);
+    outchar(10);
+    outinteger(str[10]);
+    outchar(10);
+    str[9] := 0;
+    outinteger(str[0]);
+    outchar(10);
+    outinteger(str[9]);
+    outchar(10);
+    outinteger(str[10]);
+    outchar(10)
+  'END'
+'END'

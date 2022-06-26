@@ -1,0 +1,10 @@
+'BEGIN'
+    'PROCEDURE' nop;
+      'BEGIN''END'
+     ;
+
+    'INTEGER' z;
+    z 
+    := 
+    nop
+'END'

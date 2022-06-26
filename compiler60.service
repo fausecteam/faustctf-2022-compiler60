@@ -1,0 +1,13 @@
+[Unit]
+Description = compiler60 via docker-compose
+Requires = docker.service
+After = docker.service containerd.service
+
+[Service]
+Type=oneshot
+RemainAfterExit = yes
+WorkingDirectory = /srv/compiler60
+ExecStartPre = bash -c "head -c 64 /dev/urandom > ./sign_key && chmod 600 sign_key && mkdir -p ./data && chmod 1733 ./data"
+ExecStart = docker-compose up -d
+ExecStop = docker-compose down
+Environment = COMPOSE_HTTP_TIMEOUT=600

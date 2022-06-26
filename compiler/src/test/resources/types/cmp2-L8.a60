@@ -1,0 +1,10 @@
+'BEGIN'
+    'INTEGER' a;
+    'PROCEDURE' nop(a);
+      'INTEGER' a;
+      a := a
+     ;
+    'IF' a ≤
+    nop(3)
+    'THEN' a := 1
+'END'

@@ -1,0 +1,7 @@
+'BEGIN'
+    'STRING' b[42];
+    'STRING' x[3], y[3];
+    b[x
+    +
+    y] := 34
+'END'

@@ -1,0 +1,7 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' i[2], y[22]; 
+    'INTEGER' z;
+    y 
+    := 
+    z
+'END'

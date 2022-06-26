@@ -1,0 +1,6 @@
+'BEGIN'
+    'STRING' longStr[1025];
+    outstring(
+    longStr
+    )
+'END'

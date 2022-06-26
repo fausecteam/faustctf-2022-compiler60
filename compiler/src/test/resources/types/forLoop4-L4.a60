@@ -1,0 +1,7 @@
+'BEGIN'
+    'STRING' a,b,c[3];
+    'FOR' 
+    c 
+    := 1 'DO'
+    'BEGIN''END'
+'END'

@@ -1,0 +1,81 @@
+'BEGIN'
+  'INTEGER' target;
+  'INTEGER' 'ARRAY' arr[2];
+  
+  'PROCEDURE' print(x);
+    'INTEGER' x;
+  'BEGIN'
+    outinteger(x);
+    outchar(10)
+  'END';
+  
+  'INTEGER' 'PROCEDURE' doit(a,b,c);
+    'INTEGER' a,b,c,
+      left, right;
+  'BEGIN'
+    target := 0 + a;
+    arr[0] := target;
+    target := 0 × c;
+    a := b × 0;
+    target := 'IF' a = 0 'THEN' arr[0] 'ELSE' target;
+    a := target + 0;
+  
+    left := 'IF' a ≠ 0 'THEN' b 'ELSE' c;
+    right := ('IF' a ≠ 0 'THEN' c 'ELSE' b) + 1;
+
+    target := left + left;
+    print(target × 1);
+    target := target + target;
+    print(1 × target);
+    print(right + right);
+    print(target + target);
+
+   target := left × left;
+   print(target ÷ 1);
+   target := target × target;
+   print(target - 0);
+   print(right × right);
+   print(target × target);
+
+   'IF' c ≠ (0 ÷ right) 'THEN'
+     'FOR' c := c 'STEP' -1 'UNTIL' 1 'DO' 'BEGIN'
+       target := b ÷ c; 
+       print(target);
+       target := target ÷ c;
+       print(target);
+       print(b ÷ c)
+     'END';
+
+   c := 'IF' a ≠ 0 'THEN' right 'ELSE' left;
+
+   'IF' b = 0 'THEN'
+     outstring("b = 0\n")
+   'ELSE'
+     'FOR' b := b 'STEP' -1 'UNTIL' 1 'DO' 'BEGIN'
+       target := c ÷ b; 
+       print(target);
+       target := target + 1;
+       target := c ÷ target;
+       print(target);
+       print(c ÷ b)
+     'END';   
+
+  'END';  
+
+  outstring("5, 0\n");  
+  doit(0, 5, 0);
+  doit(1, 5, 0);
+  
+  outstring("0, 7\n");
+  doit(0, 0, 7);
+  doit(1, 0, 7);
+
+  outstring("5, 2\n");
+  doit(0, 4, 2);
+  doit(1, 4, 2);
+
+  outstring("3, 6\n");
+  doit(0, 3, 6);
+  doit(1, 3, 6);
+
+'END'

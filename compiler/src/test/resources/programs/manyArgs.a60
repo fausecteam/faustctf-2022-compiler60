@@ -1,0 +1,125 @@
+'BEGIN'
+  'INTEGER' stuff;
+
+  'INTEGER' 'PROCEDURE' arg1(a);
+    'INTEGER' a;
+  'BEGIN'
+    stuff := stuff + a;
+    arg1 := stuff × a + 1;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg2(a, b);
+    'INTEGER' a, b;
+  'BEGIN'
+    stuff := stuff + a;
+    arg2 := arg1(arg1(b))×arg1(arg1(a));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg3(a, b, c);
+    'INTEGER' a, b, c;
+  'BEGIN'
+    stuff := stuff + a;
+    arg3 := arg2(arg1(b), arg2(c, a))+arg2(arg2(a, b), arg1(c));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg4(a, b, c, d);
+    'INTEGER' a, b, c, d;
+  'BEGIN'
+    stuff := stuff + a;
+    arg4 := arg3(arg1(b), arg2(c, d), arg3(d, a, b))-arg3(arg1(a), arg3(c, d, a), arg2(b, c));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg5(a, b, c, d, e);
+    'INTEGER' a, b, c, d, e;
+  'BEGIN'
+    stuff := stuff + a;
+    arg5 := arg4(arg1(b), arg3(d, e, a), arg2(c, d), arg4(e, a, b, c))×arg4(arg3(e, a, b), arg2(d, e), arg4(a, b, c, d), arg1(c));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg6(a, b, c, d, e, f);
+    'INTEGER' a, b, c, d, e, f;
+  'BEGIN'
+    stuff := stuff + a;
+    arg6 := arg5(arg1(b), arg2(c, d), arg3(d, e, f), arg5(f, a, b, c, d), arg4(e, f, a, b))×arg5(arg4(f, a, b, c), arg3(e, f, a), arg2(d, e), arg1(c), arg5(a, b, c, d, e));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg7(a, b, c, d, e, f, g);
+    'INTEGER' a, b, c, d, e, f, g;
+  'BEGIN'
+    stuff := stuff + a;
+    arg7 := arg6(arg5(f, g, a, b, c), arg3(d, e, f), arg4(e, f, g, a), arg2(c, d), arg1(b), arg6(g, a, b, c, d, e))+arg6(arg3(g, a, b), arg5(b, c, d, e, f), arg4(a, b, c, d), arg1(e), arg6(c, d, e, f, g, a), arg2(f, g));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg8(a, b, c, d, e, f, g, h);
+    'INTEGER' a, b, c, d, e, f, g, h;
+  'BEGIN'
+    stuff := stuff + a;
+    arg8 := arg7(arg5(f, g, h, a, b), arg6(g, h, a, b, c, d), arg7(h, a, b, c, d, e, f), arg2(c, d), arg1(b), arg3(d, e, f), arg4(e, f, g, h))+arg7(arg2(b, c), arg7(g, h, a, b, c, d, e), arg4(d, e, f, g), arg3(c, d, e), arg6(f, g, h, a, b, c), arg1(a), arg5(e, f, g, h, a));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg9(a, b, c, d, e, f, g, h, i);
+    'INTEGER' a, b, c, d, e, f, g, h, i;
+  'BEGIN'
+    stuff := stuff + a;
+    arg9 := arg8(arg8(i, a, b, c, d, e, f, g), arg3(d, e, f), arg1(b), arg5(f, g, h, i, a), arg4(e, f, g, h), arg2(c, d), arg6(g, h, i, a, b, c), arg7(h, i, a, b, c, d, e))+arg8(arg7(c, d, e, f, g, h, i), arg1(f), arg2(g, h), arg4(i, a, b, c), arg6(b, c, d, e, f, g), arg3(h, i, a), arg5(a, b, c, d, e), arg8(d, e, f, g, h, i, a, b));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg10(a, b, c, d, e, f, g, h, i, j);
+    'INTEGER' a, b, c, d, e, f, g, h, i, j;
+  'BEGIN'
+    stuff := stuff + a;
+    arg10 := arg9(arg4(e, f, g, h), arg2(c, d), arg8(i, j, a, b, c, d, e, f), arg5(f, g, h, i, j), arg1(b), arg3(d, e, f), arg7(h, i, j, a, b, c, d), arg9(j, a, b, c, d, e, f, g, h), arg6(g, h, i, j, a, b))+arg9(arg7(i, j, a, b, c, d, e), arg5(g, h, i, j, a), arg4(f, g, h, i), arg1(c), arg9(a, b, c, d, e, f, g, h, i), arg3(e, f, g), arg2(d, e), arg8(j, a, b, c, d, e, f, g), arg6(h, i, j, a, b, c));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg11(a, b, c, d, e, f, g, h, i, j, k);
+    'INTEGER' a, b, c, d, e, f, g, h, i, j, k;
+  'BEGIN'
+    stuff := stuff + a;
+    arg11 := arg10(arg5(f, g, h, i, j), arg7(h, i, j, k, a, b, c), arg10(k, a, b, c, d, e, f, g, h, i), arg1(b), arg6(g, h, i, j, k, a), arg4(e, f, g, h), arg3(d, e, f), arg9(j, k, a, b, c, d, e, f, g), arg2(c, d), arg8(i, j, k, a, b, c, d, e));
+  'END';
+  
+  'INTEGER' 'PROCEDURE' arg12(a, b, c, d, e, f, g, h, i, j, k, l);
+    'INTEGER' a, b, c, d, e, f, g, h, i, j, k, l;
+  'BEGIN'
+    stuff := stuff + a;
+    arg12 := arg11(arg5(f, g, h, i, j), arg9(j, k, l, a, b, c, d, e, f), arg4(e, f, g, h), arg8(i, j, k, l, a, b, c, d), arg1(b), arg2(c, d), arg3(d, e, f), arg7(h, i, j, k, l, a, b), arg11(l, a, b, c, d, e, f, g, h, i, j), arg10(k, l, a, b, c, d, e, f, g, h), arg6(g, h, i, j, k, l));
+  'END';
+  
+  'PROCEDURE' main;
+     'INTEGER' r;
+     'STRING' ins[13];
+  'BEGIN'
+     stuff := 1;
+     'COMMENT' 
+     ins[0] := 81  
+     ins[1] := 32  
+     ins[2] := 233 
+     ins[3] := 59  
+     ins[4] := 113 
+     ins[5] := 106 
+     ins[6] := 133 
+     ins[7] := 184 
+     ins[8] := 19  
+     ins[9] := 245
+     ins[10] := 102
+     ins[11] := 23 ;
+     ins := "Q \xe9;qj\x85\xb8\x13\xf5\x66\x17";
+     r:= arg12(ins[0] ,
+               ins[1] ,
+               ins[2] ,
+               ins[3] ,
+               ins[4] ,
+               ins[5] ,
+               ins[6] ,
+               ins[7] ,
+               ins[8] ,
+               ins[9] ,
+               ins[10],
+               ins[11]);
+     outinteger(r);
+     outchar(10);
+     outinteger(stuff);
+     outchar(10);
+  'END';   
+  main 
+'END'

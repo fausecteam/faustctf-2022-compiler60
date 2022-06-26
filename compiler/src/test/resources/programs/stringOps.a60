@@ -1,0 +1,21 @@
+'BEGIN'
+    'STRING' a[10], b[99];
+    'INTEGER' 'ARRAY' arr[20];
+    'INTEGER' i;
+    i := 1;
+    arr[0] := 1;
+    arr[1] := 0;
+    arr[2] := 1;
+    a := "<X>";
+    a[1] := 97;
+    b := a;
+    outstring(b + "\n");
+    b := a + "asdf";
+    outstring(b + "\n");
+    b := 'IF' i=arr[0] 'THEN' "x" 'ELSE' "y";
+    outstring(b + "\n");
+    b := 'IF' i=arr[1] 'THEN' a + "x" 'ELSE' "y" + a;
+    outstring(b + "\n");
+    b := a + ('IF' i=arr[2] 'THEN' a + "xx" 'ELSE' "y" + a);
+    outstring(b + "\n")
+'END'

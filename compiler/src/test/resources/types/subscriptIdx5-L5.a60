@@ -1,0 +1,7 @@
+'BEGIN'
+    'STRING' a[47];
+    'STRING' b[11];
+    a[1] := b[
+    a
+    ]
+'END'

@@ -1,0 +1,14 @@
+'BEGIN'
+  'INTEGER' 'ARRAY' foobar[44];
+  'INTEGER' i;    
+  'STRING' x[21];
+  x := integer2string(321);
+  i := x[0];
+  i := i + x[2];
+  x := integer2string(1024 + 1024);
+  i := i - x[3];
+  i := i - x[4];
+  outinteger(i);
+  outinteger(foobar[i]);
+  foobar[i] := i;
+'END'

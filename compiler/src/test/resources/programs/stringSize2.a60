@@ -1,0 +1,16 @@
+'BEGIN'
+  'STRING' foobar[3];
+  'STRING' y, z[4], a, b[10];
+  foobar :=
+"
+
+";
+  outstring(foobar);
+  outchar(10);
+  z := "x	x";
+  outstring(z);
+  outchar(10);
+  a := "1234\1231234";
+  outstring(a);
+  outchar(10)
+'END'

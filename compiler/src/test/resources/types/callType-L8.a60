@@ -1,0 +1,10 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' abs;
+       abs := 1
+     ;
+
+    'INTEGER' 'ARRAY' t[4];
+    t[1] := 
+    t
+    (abs)
+'END'

@@ -1,0 +1,12 @@
+'BEGIN'
+    'PROCEDURE' bar;
+       'BEGIN'
+       'END'
+     ;
+    'INTEGER' a;
+    'IF' 
+    bar 
+    < a
+    'THEN' a := a +1
+    'ELSE'a :=  a +1
+'END'

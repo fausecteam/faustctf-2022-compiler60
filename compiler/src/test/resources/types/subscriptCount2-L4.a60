@@ -1,0 +1,5 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' baz, foo[3, 4, 5];
+    baz[1, 2, 3] :=
+    foo[11, 22, 33, 44]
+'END'

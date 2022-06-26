@@ -1,0 +1,78 @@
+
+'BEGIN'
+    'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+        Find a solution for the `eight queen' problem.
+        The eight rows for the eight columns are printed.
+        (got the algorithm from a Modula program from
+         Martin Neitzel).
+    ;
+
+     'INTEGER'  'ARRAY' column [9];
+     'INTEGER'  'ARRAY' empcol [9];
+     'INTEGER'  'ARRAY' empup [15];
+     'INTEGER'  'ARRAY' empdo [17];
+     'INTEGER' i;
+
+    'PROCEDURE' print;
+    'BEGIN'
+         'INTEGER' y,x;
+
+        outstring ("found:\n") ;
+        'FOR' y := 1 'STEP' 1 'UNTIL' 8 'DO' 'BEGIN'
+            'FOR' x := 1 'STEP' 1 'UNTIL' column [ y ] - 1 'DO'
+                outinteger(x);           
+            outstring ("Q");
+            'FOR' x := column [ y ] + 1 'STEP' 1 'UNTIL' 8 'DO'
+                outinteger(x);            
+            outstring ("\n")
+        'END'
+    'END';
+
+
+    'PROCEDURE' set (x);
+     'INTEGER' x;
+    'BEGIN'
+         'INTEGER' y;
+    
+        'FOR' y := 1 'STEP' 1 'UNTIL' 8 'DO'
+        'BEGIN'
+                'IF' empcol [ y ]≠0 ∧ empup [ 7 + x-y ]≠0 
+                    ∧ empdo [ x+y ]≠0 'THEN'
+            'BEGIN'
+                column [ y ] := x ;
+                empcol [ y ] := 0 ;
+                empup [ 7 + x-y ] := 0 ;
+                empdo [ x+y ] := 0 ;
+                'IF' x = 8 'THEN' 'BEGIN'
+                        print;
+                        outstring ("done.\n");
+                        exit(0);
+                'END' 'ELSE'
+                    set ( x + 1 ) ;
+                empdo [ x+y ] := 1 ;
+                empup [ 7 + x-y ] := 1 ;
+                empcol [ y ] := 1 ;
+                column [ y ] := 0
+             'END';
+         'END';
+     'END';
+
+    'COMMENT' Main start;
+
+    'FOR' i := 1 'STEP' 1 'UNTIL' 8 'DO'
+    'BEGIN'
+         column [ i ] := 0 ;
+         empcol [ i ] := 1
+     'END';
+
+    'FOR' i := -7 'STEP' 1 'UNTIL' 7 'DO'
+         empup [ 7 + i ] := 1 ;
+
+    'FOR'  i := 2 'STEP' 1 'UNTIL' 16 'DO'
+         empdo [ i ] := 1 ;
+
+    outstring ("starting:\n");
+    set ( 1 )
+ 'END'

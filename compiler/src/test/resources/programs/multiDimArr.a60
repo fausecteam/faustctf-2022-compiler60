@@ -1,0 +1,29 @@
+'BEGIN'
+  'INTEGER' 'PROCEDURE' foobar(a);
+    'INTEGER' a;
+    foobar := a + 1
+  ;
+  'INTEGER' 'ARRAY' x[2, 2], y[10, 20, 2];
+  x[0, 0] := 33;
+  x[0, 1] := 22;
+  x[1, 0] := 11;
+  x[1, 1] := -11;
+  outinteger(x[0, 0]);
+  outchar(32);
+  outinteger(x[0, 1]);
+  outchar(32);
+  outinteger(x[1, 0]);
+  outchar(32);
+  outinteger(x[1, 1]);
+  outchar(10);
+  
+  y[x[0, 0]-30, 2, 1] := 42;
+  outinteger(y[x[1, 1]+14, 2, 1]);
+  outchar(32);
+  y[9, x[0, 1]-21, 1] := 43;
+  outinteger(y[9, x[1, 1]+12, 1]);
+  outchar(32);
+  
+  y[foobar(4), x[0, 0]-23, foobar(0)] := 1337;
+  outinteger(y[y[3, 2, 1]-42+5, 10, foobar(0)]);
+'END'

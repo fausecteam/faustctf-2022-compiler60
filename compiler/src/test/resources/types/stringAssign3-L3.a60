@@ -1,0 +1,7 @@
+'BEGIN'
+  'STRING' foobar[2];
+  foobar := 
+"
+
+"
+'END'

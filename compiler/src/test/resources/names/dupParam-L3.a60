@@ -1,0 +1,7 @@
+'BEGIN'
+   'PROCEDURE' asdf(a,c,
+       a);
+     'INTEGER' a;
+     'INTEGER' c;
+      a := 1;
+'END'

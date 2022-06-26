@@ -1,0 +1,19 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' ackermann(n,m);
+      'INTEGER' n,m;
+    'BEGIN'
+        'IF' n = 0 'THEN'
+            ackermann := m + 1
+        'ELSE' 'BEGIN'
+            m := 'IF' m = 0 'THEN' 1 'ELSE' ackermann(n, m - 1);
+            ackermann := ackermann(n - 1, m);
+        'END'
+   'END';
+
+   'INTEGER' i;
+   'FOR' i := 0 'STEP' 1 'UNTIL' 6 'DO' 'BEGIN'
+        outstring("a(3, " + integer2string(i) + ") := ");
+        outinteger(ackermann(3, i));
+        outstring("\n")       
+   'END'
+'END'

@@ -1,0 +1,9 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' zwo;
+      zwo := 2
+    ;
+    'STRING' bar[333];
+    bar
+    [zwo, zwo]
+    := 33
+'END'

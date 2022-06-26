@@ -1,0 +1,10 @@
+'BEGIN'
+  'INTEGER' 'PROCEDURE' abs(x);
+    'INTEGER' x;
+    x := x
+  ;
+  'STRING' y[4];
+  y := y 
+  +
+  abs(3) 
+'END'

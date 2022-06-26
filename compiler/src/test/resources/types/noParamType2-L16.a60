@@ -1,0 +1,50 @@
+'BEGIN'
+    'COMMENT'
+            ALGOL Praktikum, Dr. Karl Nickel, 1964,
+            page 215 (Aufgabe 40)
+        
+        ``Teilsummen-Formel nach Euler.
+          Bearbeitung nach Herrn Ulrich Arnold.
+          Optimum''
+    ;
+        
+    'INTEGER' K, N, U, T, L; 'INTEGER' 'ARRAY' B[30], S[200] ;
+        
+    'INTEGER' 'PROCEDURE' nop;
+    nop := 1;
+        
+    'INTEGER' 'PROCEDURE' abs(i);
+      'INTEGER' 'ARRAY' i[1];
+      abs := 'IF' i[0] ≥ 0 'THEN' i[0] 'ELSE' -i[0]
+      ;
+    
+    abs(nop);
+    
+    B[1] := 1 ;
+        
+    'FOR' K := 2 'STEP' 2 'UNTIL' K + 200 - B[K - 1]  'DO'
+        
+    'BEGIN' B[K] := B[K - 1] + K÷2 ;
+        
+        B[K + 1] := B[K] + K + 1
+        
+    'END' ;
+        
+    'FOR' N := 1 'STEP' 1 'UNTIL' 200 'DO'
+        
+    'BEGIN' S[0] := N ;  U := -1 ;  T := 0 ;  L := N - 1 ;
+    
+        'FOR' K := 2 'STEP' 1 'UNTIL' K + L 'DO'
+        
+        'BEGIN' T := S[L] + T×U ;
+        
+            L := N - B[K] ;
+        
+            U := -U
+        'END' ;
+        
+        S[N] := abs( T ) ;
+        
+        'COMMENT' vprint (N, S[N]) ;
+    'END'
+'END'

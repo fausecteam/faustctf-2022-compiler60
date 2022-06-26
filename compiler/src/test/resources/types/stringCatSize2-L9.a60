@@ -1,0 +1,11 @@
+'BEGIN'
+  'STRING' bar[4], foo[3], empty[1];
+  bar := empty + bar;
+  bar := bar + empty;
+  bar := foo + empty;
+  bar := empty + foo;
+  foo := empty + foo;
+  foo := foo + empty;
+  bar
+  := empty + "a" + foo + "a" + empty 
+'END'

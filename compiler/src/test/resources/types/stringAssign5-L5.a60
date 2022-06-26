@@ -1,0 +1,10 @@
+'BEGIN'
+  'PROCEDURE' f;
+    'STRING' foobar[4];
+    'STRING' foo   [10000];
+    foobar 
+    :=
+    "\r\n\\\t"
+  ;
+  f
+'END'

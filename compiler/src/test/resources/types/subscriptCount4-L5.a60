@@ -1,0 +1,7 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' a, b[3, 4, 5];
+    'STRING' c[12];
+    a[1, 2, 3] :=
+    c
+    [11, 22]
+'END'

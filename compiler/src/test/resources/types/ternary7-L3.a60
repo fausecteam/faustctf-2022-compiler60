@@ -1,0 +1,5 @@
+'BEGIN'
+    'STRING' x[2],z[3];
+    x
+    := 'IF' x[0]=z[0] 'THEN' x 'ELSE' z
+'END'

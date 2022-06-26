@@ -1,0 +1,12 @@
+'BEGIN'
+  'BEGIN'
+    'STRING' asdf[7];
+    'INTEGER' i;
+    asdf := "qwerty";
+    'FOR' i := 5 'STEP' -1 'UNTIL' -1 'DO' 'BEGIN'
+      asdf[i] := 0;
+      outstring(asdf);
+      outchar(10);
+    'END'
+  'END'
+'END'

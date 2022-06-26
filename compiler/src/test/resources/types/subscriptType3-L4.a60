@@ -1,0 +1,6 @@
+'BEGIN'
+    'INTEGER' x,y;
+    x := (1 +
+    y
+    [2]) × 3
+'END'

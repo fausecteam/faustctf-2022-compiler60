@@ -1,0 +1,50 @@
+
+'BEGIN'
+	'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+		ALGOL Praktikum, Dr. Karl Nickel, Karlsuhe 1964,
+		page 113 (example 16).
+
+		Montgomery Phister, Logical Design of Digital
+		Computers (NewYork 1958, page 99 and 100).
+	;
+
+    'BEGIN'
+		'INTEGER' a, b, c, d;
+    	
+		'FOR' a := 1 'STEP' -1 'UNTIL' 0 'DO'
+		'FOR' b := 1 'STEP' -1 'UNTIL' 0 'DO'
+		'FOR' c := 1 'STEP' -1 'UNTIL' 0 'DO'
+		'FOR' d := 1 'STEP' -1 'UNTIL' 0 'DO'
+    	
+		'BEGIN' 'IF' (a≠0∧ b≠0 ∧ c≠0 ∧ ¬ d≠0)		
+				∨ (a≠0∧ ¬ b≠0 ∧ ¬ c≠0 ∧ ¬ d≠0)
+				∨ (¬ a≠0∧ b≠0 ∧ ¬ c≠0 ∧ d≠0)
+			'THEN' 
+    	        'BEGIN''END'
+			'ELSE' 'IF' 'IF' (¬ a≠0 ∧ ¬ c≠0)
+					∨ (a≠0 ∧ b≠0 ∧ ¬ d≠0)
+					∨ (¬ a≠0 ∧ ¬ b≠0 ∧ c≠0 ∧ d≠0)
+					∨ (a≠0 ∧ b≠0 ∧ c≠0 ∧ d≠0)
+					 'THEN'
+					(¬ c≠0 ∧ ¬ d≠0)
+					∨ (a≠0 ∧ b≠0 ∧ c≠0)
+					∨ (¬ a≠0 ∧ ¬ b≠0 ∧ d≠0)
+					'ELSE' ¬(
+					(¬ c≠0 ∧ ¬ d≠0)
+					∨ (a≠0 ∧ b≠0 ∧ c≠0)
+					∨ (¬ a≠0 ∧ ¬ b≠0 ∧ d≠0)
+					) 
+				'THEN'
+    	             'BEGIN''END'
+				'ELSE' 'BEGIN'
+					outstring ("the formula is wrong");
+					exit(1)
+				'END';
+		'END';
+    	
+		outstring ("the formula is correct");
+	'END'
+
+'END'

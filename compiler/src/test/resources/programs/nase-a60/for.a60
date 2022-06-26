@@ -1,0 +1,35 @@
+'BEGIN'
+	'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+		examine some kinds of for-loops
+	;
+
+	'INTEGER' i, sum;
+
+	sum := 0;
+	'FOR' i := 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 'DO'
+		sum := sum + i;
+	'IF' sum = 55 'THEN' outstring ("1. ok.\n") 'ELSE' outstring ("1. error\n");
+
+	sum := 0;
+	'FOR' i := 1 'STEP' 1 'UNTIL' 10 'DO'
+		sum := sum + i;
+	'IF' sum = 55 'THEN' outstring ("2. ok.\n") 'ELSE' outstring ("2.	error\n");
+
+	sum := 0;
+	'FOR' i := 10 'STEP' -1 'UNTIL' 1 'DO'
+		sum := sum + i;
+	'IF' sum = 55 'THEN' outstring ("3. ok.\n") 'ELSE' outstring ("3.	erro\n");
+
+	sum := 0;
+	'FOR' i := 1, i + 1 'WHILE' i ≤ 10 'DO'
+		sum := sum + i;
+	'IF' sum = 55 'THEN' outstring ("4. ok.\n") 'ELSE' outstring ("4.	error\n");
+
+	sum := 0;
+	'FOR' i := 1, 2, 3, i + 1 'WHILE' i ≤ 7, 8 'STEP' 1 'UNTIL' 10 'DO'
+		sum := sum + i;
+	'IF' sum = 55 'THEN' outstring ("5. ok.\n") 'ELSE' outstring ("5.	error\n");
+
+'END'

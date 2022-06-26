@@ -1,0 +1,10 @@
+'BEGIN'
+    'PROCEDURE' nix;
+      'BEGIN''END' 
+    ;
+    'INTEGER' b;
+    'FOR' b := 
+    nix 
+    'STEP' 1 'UNTIL' 2 'DO'
+    'BEGIN''END'
+'END'

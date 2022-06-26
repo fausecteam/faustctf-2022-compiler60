@@ -1,0 +1,14 @@
+'BEGIN'
+  'PROCEDURE' main;
+  'BEGIN'
+    outinteger(i);
+    x[i] := i;
+    i := 44;
+    outinteger(i);
+  'END';
+  'INTEGER' 'ARRAY' x[2];
+  'INTEGER' i;
+  i := 2;
+  main;
+  outinteger(x[i]);
+'END'

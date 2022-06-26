@@ -1,0 +1,9 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' foo(x,
+    y,
+    z);
+      'INTEGER' x ; 'INTEGER' 'ARRAY' i[2], y[22]; 
+      'INTEGER' z;
+      foo := 1
+      ;
+'END'

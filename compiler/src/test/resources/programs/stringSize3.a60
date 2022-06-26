@@ -1,0 +1,19 @@
+'BEGIN'
+  'PROCEDURE' baz;
+    'STRING' foo[11];
+  'BEGIN'
+    foo :=
+"\x0a
+\011\r\n\t\\\x61
+";
+  outstring(foo);
+  outchar(10)
+  'END'
+  ;
+  'STRING' y[3],
+      x[4];
+  x := "y\x61y";
+  outstring(x);
+  outchar(10);
+  baz
+'END'

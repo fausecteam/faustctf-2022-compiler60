@@ -1,0 +1,43 @@
+'BEGIN'
+	'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+
+			ALGOL Praktikum, Dr. Karl Nickel, 1964,
+			page 215 (Aufgabe 40)
+
+		``Teilsummen-Formel nach Euler.
+		  Loesung von Doz. Dr. R. Wagener.
+		  Elegantissimum''
+	;
+
+
+	'INTEGER' N, H, U, K ;  'INTEGER' 'ARRAY' S[201] ;
+	
+    'INTEGER' 'PROCEDURE' abs(i);
+        'INTEGER' i;
+        abs := 'IF' i ≥ 0 'THEN' i 'ELSE' -i
+    ;
+	
+	'FOR' N := 1 'STEP' 1 'UNTIL' 200 'DO'
+
+	'BEGIN' S[0] := N ;  S[N] := 0 ;  H := -1 ; U := -1 ;
+	
+		'FOR' K := N-1, K + H 'WHILE' K ≥ 0 'DO'
+
+		'BEGIN' S[N] := S[K] + S[N]×U ;
+
+			H := ((3+U)×H - 2) ÷ (3-U) ;
+
+			U := -U ;
+
+		'END' ;
+
+		S[N] := abs( S[N] ) ;
+
+		outinteger(N);
+        outchar(32);
+        outinteger(S[N]);
+        outchar(10)
+	'END'
+'END'

@@ -1,0 +1,7 @@
+'BEGIN'
+  'STRING' y[3],
+    x[3];
+  x 
+  := 
+  "a\x61a"
+'END'

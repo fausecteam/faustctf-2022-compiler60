@@ -1,0 +1,81 @@
+'BEGIN'
+  'INTEGER' 'PROCEDURE' imod(a, b);
+    'INTEGER' a, b;
+    imod := a - (a ÷ b) × b;
+  
+  'INTEGER' 'PROCEDURE' gcd1(a, b);
+    'INTEGER' a, b; 
+  'IF' a = b 'THEN'
+    gcd1 := a
+  'ELSE' 'IF' a < b 'THEN'
+      gcd1 := gcd1(b, a)
+    'ELSE'
+      gcd1 := gcd1(a - b, b)
+  ;
+  
+  'INTEGER' 'PROCEDURE' gcd2(a, b);
+    'INTEGER' a, b; 
+  'IF' a = b ∨ b = 0 'THEN'
+    gcd2 := a
+  'ELSE'
+    gcd2 := gcd2(b, imod(a, b))
+  ;
+  
+  'INTEGER' 'PROCEDURE' gcd3(a, b);
+    'INTEGER' a, b; 
+  'BEGIN'
+    'FOR' a := a 'WHILE' a ≠ b 'DO' 'BEGIN'
+      'INTEGER' s;
+      'FOR' a := a 'WHILE' a > b 'DO'
+        a := a - b;
+      s := a;
+      a := b;
+      b := s;
+    'END';
+    gcd3 := b;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' gcd4(a, b);
+    'INTEGER' a, b;
+  'BEGIN'
+    'INTEGER' s;
+    s := b;
+    'FOR' b := imod(a, b) 'WHILE' b ≠ 0 'DO' 'BEGIN'
+      a := s;
+      s := b;
+    'END';
+    gcd4 := s;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' gcd(a, b);
+    'INTEGER' a,b;
+    'INTEGER' 'ARRAY' r[4];
+  'BEGIN'
+    r[0] := gcd1(a, b);
+    r[1] := gcd2(a, b);
+    r[2] := gcd3(a, b);
+    r[3] := gcd4(a, b);
+    'IF' r[0] ≠ r[1] ∨ r[1] ≠ r[2] ∨ r[2] ≠ r[3] 'THEN'
+      outstring("X");
+    gcd := r[0];
+  'END';
+  
+  outinteger(gcd(2, 4));
+  outchar(10);
+  outinteger(gcd(3, 4));
+  outchar(10);
+  outinteger(gcd(11, 21));
+  outchar(10);
+  outinteger(gcd(2, 62));
+  outchar(10);
+  
+  outinteger(gcd(12, 3));
+  outchar(10);
+  outinteger(gcd(9999, 654));
+  outchar(10);
+  outinteger(gcd(5, 9999));
+  outchar(10);
+  outinteger(gcd(3, 3));
+  outchar(10);
+
+'END'

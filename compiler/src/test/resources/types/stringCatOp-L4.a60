@@ -1,0 +1,6 @@
+'BEGIN'
+  'STRING' x[5];
+  x := "aa" 
+  -
+  "bb" 
+'END'

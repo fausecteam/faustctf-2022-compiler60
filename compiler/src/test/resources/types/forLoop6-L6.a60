@@ -1,0 +1,9 @@
+'BEGIN'
+    'STRING' nix[1];
+    'INTEGER' b;
+    nix := "";
+    'FOR' b := 1 'STEP' 1 'UNTIL' 
+    nix
+    'DO'
+    'BEGIN''END'
+'END'

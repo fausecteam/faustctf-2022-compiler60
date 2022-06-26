@@ -1,0 +1,10 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' bar(i);
+      'INTEGER' i;
+      bar := 1
+    ;
+    'INTEGER' 'ARRAY' foo[3, 3];
+    foo[1, 1] := bar(
+    foo
+    )
+'END'

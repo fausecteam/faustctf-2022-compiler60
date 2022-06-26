@@ -1,0 +1,12 @@
+'BEGIN'
+  'INTEGER' x;
+  'FOR' x := -1,2 'STEP' 1 'UNTIL' 9, 7, x + 1 'WHILE' x ≤ 13 'DO' 'BEGIN'
+    x := x + 1;
+    outinteger(x);
+    outchar(10)
+  'END';
+  'FOR' x := 100 'STEP' -1 'UNTIL' 95 'DO' 'BEGIN'
+      outinteger(x);
+      outchar(10)
+    'END'
+'END'

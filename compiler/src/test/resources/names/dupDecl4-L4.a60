@@ -1,0 +1,10 @@
+'BEGIN'
+  'STRING' x[20];
+  'INTEGER' 'ARRAY'
+    x
+    [20];
+  x := "asdf";
+  outstring(x);
+  x[0] := 32;
+  outstring(x)
+'END'

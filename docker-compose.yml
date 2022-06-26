@@ -1,0 +1,52 @@
+version: "2.2"
+# ipv6 is not supported in version 3
+
+services:
+  # a dummy entry (with scale 0) to download the *-deps image on pull
+  compiler-deps:
+    scale: 0
+    image: faust.cs.fau.de:5000/compiler60-compiler-deps
+    build:
+      context: compiler
+      dockerfile: Dockerfile.deps
+  compiler:
+    image: faust.cs.fau.de:5000/compiler60-compiler
+    build: compiler
+    restart: unless-stopped
+    # need init process to reap orphans from build wrapper
+    init: true
+    ports:
+      - "6061:6061"
+    volumes:
+      - /etc/team-num:/etc/team-num:ro
+      - ./sign_key:/app/sign_key:ro
+      - ./gui.html:/app/gui.html:ro
+
+  executor:
+    image: faust.cs.fau.de:5000/compiler60-executor
+    build: executor
+    restart: unless-stopped
+    ports:
+      - "6062:6062"
+    # to get writeable cgroup mount in container there seems to be no other option: https://stackoverflow.com/q/64676531
+    privileged: true
+    volumes:
+      - ./data:/data
+      - ./sign_key:/sign_key:ro
+    environment:
+      - "GOMAXPROCS=4"
+    # Uncomment below to debug executions (do not use on vulnbox):
+    # The sandboxed process will be stopped when it starts executing the requested binary.
+    # Then the gdb arguments to attach to the process (from docker host) will be printed in the docker log.
+    # This will also disable signature verification, so you can execute any binary.
+    #  - "DEBUG=1"
+
+
+networks:
+  default:
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: "fd42:d0ce:6061::/64"
+

@@ -1,0 +1,12 @@
+'BEGIN'
+    'PROCEDURE' nix;
+      'BEGIN''END' 
+    ;
+    'INTEGER' b;
+    'FOR' b := 1 'WHILE' 
+    1 = (
+    nix 
+    × 2)
+    'DO'
+    'BEGIN''END'
+'END'

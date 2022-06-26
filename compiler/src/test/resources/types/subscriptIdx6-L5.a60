@@ -1,0 +1,7 @@
+'BEGIN'
+  'STRING' x[33];
+  'INTEGER' 'ARRAY' foobar[1, 3, 3, 3, 7];
+  foobar[1, 1, 1, 1, 
+  x
+  ] := 1111
+'END'

@@ -1,0 +1,4 @@
+'BEGIN'
+    asdf(
+      1,2)
+'END'

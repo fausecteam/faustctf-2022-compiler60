@@ -1,0 +1,15 @@
+#define O_CREAT 0x40
+
+DEFAULT KILL
+
+ALLOW{
+  read, write, exit,
+  open(path, flags, mode) {
+    (flags & O_CREAT) == 0 || mode == 0644
+  },
+
+  execve(path, argv, env) {
+    # path must be exact address - neither predictable nor reachable without mmap
+    path == <place holder>
+  }
+}

@@ -1,0 +1,7 @@
+'BEGIN'
+  'STRING' a,
+     b[10];
+  a[0] 
+  :=
+  b
+'END'

@@ -1,0 +1,10 @@
+'BEGIN'
+    'INTEGER' 'PROCEDURE' bar(i);
+      'INTEGER' i;
+      bar := 1
+    ;
+    'STRING' s[42];
+    s[0] := bar(
+    s
+    )
+'END'

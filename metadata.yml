@@ -1,0 +1,22 @@
+# Human-readable name of the service
+name: compiler60
+# Name of the service for usage in paths, usernames etc.: Should only consist of lowercase alphanumeric
+# characters, must be identical to the (URL) project name of the GitLab repo
+slug: compiler60
+
+install:
+  container_images:
+      - faust.cs.fau.de:5000/compiler60-compiler-deps
+      - faust.cs.fau.de:5000/compiler60-compiler
+      - faust.cs.fau.de:5000/compiler60-executor
+
+checker:
+  script_path: ./checker/checker
+  # Upper bound of how long the Checker Script takes to run (for a single team)
+  # Used for scheduling checks within a tick, executions taking longer *may* get terminated
+  max_duration: 60
+  install_commands:
+    - 'cd ./checker && (rm -f ./checker || true) && go build checker/cmd/checker'
+  debian_packages:
+    - golang
+  pip_packages: []

@@ -1,0 +1,6 @@
+'BEGIN'
+    'INTEGER' 'ARRAY' b[4];
+    'INTEGER' x;
+    x := 11 + 
+    b 
+'END'

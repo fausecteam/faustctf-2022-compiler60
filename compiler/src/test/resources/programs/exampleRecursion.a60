@@ -1,0 +1,39 @@
+'BEGIN'
+  'INTEGER' 'PROCEDURE' even(i);
+      'INTEGER' i;
+    even := 'IF' i > 1 'THEN' odd(i-1) 'ELSE' 'IF' i = 0 'THEN' 1 'ELSE' 0
+  ;
+
+  'INTEGER' 'PROCEDURE' odd(i);
+      'INTEGER' i;
+   'IF' i > 1 'THEN'
+     odd := even(i-1)
+   'ELSE' 'BEGIN'
+     'IF' i = 1 'THEN'
+       odd := 1
+     'ELSE'
+       odd := 0
+   'END'
+  ;
+
+  'PROCEDURE' test(i);
+      'INTEGER' i;
+  'BEGIN'
+     outinteger(i);
+     outstring(" is even: ");
+     outinteger(even(i));
+     outstring(" odd: ");
+     outinteger(odd(i));
+     outchar(10);
+  'END';
+
+  test(0);
+  test(1);
+
+  test(33);
+  test(27);
+  test(24);
+
+  test(256);
+  test(257);
+'END'

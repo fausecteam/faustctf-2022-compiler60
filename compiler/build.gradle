@@ -1,0 +1,83 @@
+plugins {
+    id 'antlr'
+    id 'application'
+}
+
+application {
+    mainClass = "de.faust.compiler60.CompilerServer"
+    // for debugging
+    //mainClass = "de.faust.compiler60.Algol60Compiler"
+}
+
+group 'de.faust.compiler60'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    implementation 'org.antlr:antlr4-runtime:4.10.1'
+    // add antlr4 dependency for the plugin to generate the Parser
+    antlr 'org.antlr:antlr4:4.10.1'
+}
+// apart from generating, we only need antlr4-runtime, so exclude antlr4 that again
+configurations.implementation {
+    exclude group: 'org.antlr', module: 'antlr4'
+}
+
+generateGrammarSource {
+    arguments += ["-no-listener", "-package", "de.faust.compiler60.antlr"]
+}
+
+test {
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = 'full'
+    useJUnitPlatform()
+    // from https://gist.github.com/orip/4951642
+    testLogging {
+        afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            }
+        }
+    }
+}
+
+// task which does nothing but requests all dependencies to build to make gradle cache them
+task downloadDependencies(type: Exec) {
+    generateGrammarSource.antlrClasspath.files
+    configurations.runtimeClasspath.files
+    commandLine 'echo', 'Downloaded all dependencies'
+}
+
+// compile the build wrapper "assembleAndLink"
+task buildWrapper(type: Exec) {
+    inputs.file("${sourceSets.main.resources.srcDirs.first().absolutePath}/assembleAndLink.c")
+    outputs.file("${sourceSets.main.output.resourcesDir}/assembleAndLink")
+    commandLine 'gcc', '-Os', '-o', outputs.getFiles().getSingleFile(), inputs.getFiles().getSingleFile()
+}
+processResources.dependsOn(buildWrapper)
+task buildStdlib(type: Exec) {
+    inputs.file("${sourceSets.main.resources.srcDirs.first().absolutePath}/stdlib.c")
+    outputs.file("${sourceSets.main.output.resourcesDir}/stdlib.o")
+    commandLine 'gcc', '-c', '-O3', '-nostdlib', '-ffreestanding', '-Qn', 
+            '-mmanual-endbr', '-fno-asynchronous-unwind-tables', '-fno-align-jumps', '-fno-align-loops', 
+            '-o', outputs.getFiles().getSingleFile(), inputs.getFiles().getSingleFile()
+}
+processResources.dependsOn(buildStdlib)
+
+// task which generates the arguments for java to launch
+task getJavaArgs(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = application.mainClass
+    // use echo to get the arguments gradle wants to pass to java
+    executable = "/bin/echo"
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'

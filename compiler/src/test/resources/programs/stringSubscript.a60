@@ -1,0 +1,21 @@
+'BEGIN'
+  'BEGIN'
+    'INTEGER' 'ARRAY' arr[9];
+    'STRING' s[21];
+    outinteger(s[0]);
+    outstring("Hello world\n");
+    s := integer2string(1122);
+    s[1] := 97;
+    outstring(s);
+    outchar(10);
+    arr[0] := s[0];
+    outinteger(arr[0]);
+    outchar(10);
+    s[3] := -1;
+    outinteger(s[3]);
+    outchar(10);
+    outinteger(s[4]);
+    outchar(10);
+    outstring(s)
+  'END'
+'END'

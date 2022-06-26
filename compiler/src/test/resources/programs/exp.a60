@@ -1,0 +1,79 @@
+'BEGIN'
+  'INTEGER' 'PROCEDURE' exp1(a, e);
+    'INTEGER' a, e, d; 
+  'IF' e = 0 'THEN'
+    exp1 := 1
+  'ELSE' 'BEGIN'
+    d := exp1(a, e - 1);
+    exp1 := a × d;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' exp2(a, e);
+    'INTEGER' a, e, d;
+  'IF' e = 0 'THEN'
+    exp2 := 1
+  'ELSE' 'BEGIN'
+    'IF' (e ÷ 2) × 2 = e 'THEN' 'BEGIN'
+      d := exp2(a, e ÷ 2);
+      exp2 := d × d;
+    'END' 'ELSE' 'BEGIN'
+      d := exp2(a, e - 1);
+      exp2 := a × d;
+    'END'
+  'END';
+  
+  'INTEGER' 'PROCEDURE' exp3(a, e);
+    'INTEGER' a, e, r;
+  'BEGIN'
+    r := 1;
+    'FOR' e := e 'STEP' -1 'UNTIL' 1 'DO' 'BEGIN'
+      r := r × a;
+    'END';
+    exp3 := r;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' exp4(a, e);
+    'INTEGER' a, e, r;
+  'BEGIN'
+    r := 1;
+    'FOR' e := e 'STEP' -1 'UNTIL' 1 'DO' 'BEGIN'
+      'FOR' e := e 'WHILE' (e ÷ 2) × 2 = e 'DO' 'BEGIN'
+        a := a × a;
+        e := e ÷ 2;
+      'END';
+      r := r × a;
+    'END';
+    exp4 := r;
+  'END';
+  
+  'INTEGER' 'PROCEDURE' exp(a, e);
+    'INTEGER' a, e;
+    'INTEGER' 'ARRAY' r[4];
+  'BEGIN'
+    r[0] := exp1(a, e);
+    r[1] := exp2(a, e);
+    r[2] := exp3(a, e);
+    r[3] := exp4(a, e);
+    'IF' r[0] ≠ r[1] ∨ r[1] ≠ r[2] ∨ r[2] ≠ r[3] 'THEN'
+      outstring("X");
+    exp := r[0];
+  'END';
+  
+  outinteger(exp(2, 4));
+  outchar(10);
+  outinteger(exp(2, 8));
+  outchar(10);
+  outinteger(exp(2, 16));
+  outchar(10);
+  outinteger(exp(2, 62));
+  outchar(10);
+  
+  outinteger(exp(12, 3));
+  outchar(10);
+  outinteger(exp(1, 99));
+  outchar(10);
+  outinteger(exp(654, 5));
+  outchar(10);
+  outinteger(exp(3, 3));
+  outchar(10);
+'END'

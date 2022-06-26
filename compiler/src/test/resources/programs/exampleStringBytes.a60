@@ -1,0 +1,19 @@
+'BEGIN'
+  'STRING' s[21];
+  outstring("You can access the bytes of a string\n");
+  s := "ABCD";
+  outstring("s[0] = " + integer2string(s[0]) + "\n");
+  outstring("s[3] = " + integer2string(s[3]) + "\n");
+  outstring("s[4] = " + integer2string(s[4]) + "\n");
+  
+  s[2] := 0;
+  outstring("Shrunk string: " + s + "\n");
+  
+  outstring("There is a bug in here:\n");
+  s := "AAAA";
+  s[0] := s[0] × 4 - 20;
+  s[1] := s[0] ÷ 2 + 39;
+  s[2] := s[2] + 105;
+  s[3] := s[2] + s[0] ÷ 30;
+  outstring(s)
+'END'

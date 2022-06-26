@@ -1,0 +1,60 @@
+'BEGIN'
+    'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1990 Erik Schoenfelder
+        321.a60:            oct '90
+        Erik Schoenfelder
+
+        This is the
+            0. Start with a natural number n.
+            1. If n is odd, set n to be 3 * n + 1
+               If n is even, set n to be n / 2
+               Repeat step 1 until n is equal 1.
+            2. Print the number of repetitons.
+        fun.
+        And: Who knows, if this termimates for any n...
+    ;
+
+    'INTEGER' 'PROCEDURE' odd (x);
+        'INTEGER' x;
+        odd := x - (x ÷ 2) × 2
+    ;
+
+    'INTEGER' 'PROCEDURE' doit (n);
+    'INTEGER' n;
+    'BEGIN'
+      'INTEGER' count;
+      'FOR' count := 0, count + 1 'WHILE' n ≠ 1 'DO' 'BEGIN'
+          'IF' odd(n) ≠ 0 'THEN'
+            n := 3 × n + 1
+          'ELSE'
+            n := n ÷ 2;
+      'END';
+      doit := count;
+    'END';
+
+
+    'INTEGER' i, n, val, max, NN;
+
+    NN := 12;
+
+    outstring ("Hi!\nn           iterations\n");
+    'FOR' i := 1 'STEP' 1 'UNTIL' NN 'DO'
+        outstring (integer2string(i) + "           " + integer2string(doit (i)) + "\n");
+    outstring ("...");
+
+    outstring ("\nnow looking for maxima:");
+    outstring ("\nn           iterations\n");
+
+    n := 0;  max := -1; val := -1;
+    'FOR' i := 1 'STEP' 1 'UNTIL' NN 'DO' 'BEGIN'
+        'FOR' val := val 'WHILE' val ≤ max 'DO' 'BEGIN'
+            n := n + 1;
+            val := doit (n);
+        'END';
+
+        outstring (integer2string(n) + "           " + integer2string(val) + "\n");
+        max := val;
+    'END';
+    outstring ("...\ndone.")
+'END'

@@ -1,0 +1,23 @@
+'BEGIN'
+  'STRING' foobar[7];
+  foobar := "foobar";
+  'IF' foobar[0] ≠ 102 'THEN'
+    exit(1);
+  outstring(foobar);
+  outchar(35);
+  foobar[5] := 122;
+  'IF' foobar[5] ≠ 122 'THEN'
+    exit(1);
+  outstring(foobar);
+  outchar(35);
+  foobar[3] := 0;
+  'IF' foobar[2] ≠ 111 'THEN'
+    exit(1);
+  outstring(foobar);
+  outchar(35);
+  foobar[5] := 122;
+  'IF' foobar[5] ≠ 122 'THEN'
+    exit(1);
+  outstring(foobar);
+  outchar(35);
+'END'

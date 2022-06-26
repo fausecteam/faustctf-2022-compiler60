@@ -1,0 +1,70 @@
+'BEGIN'
+    'COMMENT'
+SPDX-License-Identifier: GPL-2.0-only
+Copyright (C) 1999 Erik Schoenfelder
+        calculation of the prime numbers between 2 and 200
+    ;
+
+    'COMMENT' first algorithm (check division in a loop) ;
+
+    'INTEGER' 'PROCEDURE' odd (x);
+        'INTEGER' x;
+        odd := x - (x ÷ 2) × 2
+    ;
+
+    'INTEGER' 'PROCEDURE' isprime (n);
+      'INTEGER' n;
+    'BEGIN'
+        'INTEGER' i;
+
+        isprime := 'IF' n = 2 'THEN' 1 'ELSE' 0;
+        'IF' odd (n) ≠ 0 'THEN' 'BEGIN'
+          isprime := 1;
+          'FOR' i := 3 'STEP' 2 'UNTIL' n ÷ 2 'DO'
+            'IF' (n ÷ i) × i = n 'THEN' 'BEGIN'
+                isprime := 0;
+                i := n
+            'END'
+        'END'
+    'END';
+
+    'INTEGER' NN;
+
+    NN := 200;
+
+    'BEGIN'
+
+        'INTEGER' i;
+
+        outstring ("first:\n");
+
+        'FOR' i := 2 'STEP' 1 'UNTIL' NN 'DO'
+            'IF' isprime (i) ≠ 0 'THEN'
+                outstring (" " + integer2string(i));
+        outstring ("\ndone.")
+    'END';
+
+    'BEGIN'
+        'COMMENT' second algorithm (sieve) ;
+
+
+        'INTEGER' 'ARRAY' arr [201];
+        'INTEGER' i, j;
+
+        outstring ("\nsecond:\n");
+
+        'FOR' i := 2 'STEP' 1 'UNTIL' NN 'DO'
+            arr [i] := 1;
+
+        'FOR' i := 2 'STEP' 1 'UNTIL' NN ÷ 2 'DO'
+            'FOR' j := 2 × i, j + i 'WHILE' j ≤ NN 'DO' 'BEGIN'
+                arr [j] := 0;
+            'END';
+
+        'FOR' i := 2 'STEP' 1 'UNTIL' NN 'DO'
+            'IF' arr [i] ≠ 0 'THEN'
+                outstring (" " + integer2string(i));
+        outstring ("\ndone.")
+
+    'END'
+'END'

@@ -1,0 +1,11 @@
+'BEGIN'
+  'PROCEDURE' baz;
+    'STRING' foo[11];
+    foo 
+    :=
+"\x0a
+\011\r\n\t\\\x61
+" 
+  ;
+  baz
+'END'

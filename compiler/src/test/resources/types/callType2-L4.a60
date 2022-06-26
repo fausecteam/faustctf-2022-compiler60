@@ -1,0 +1,6 @@
+'BEGIN'
+    'INTEGER' foo;
+    foo := 
+    foo
+    (1)
+'END'

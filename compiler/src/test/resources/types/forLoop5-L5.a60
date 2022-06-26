@@ -1,0 +1,8 @@
+'BEGIN'
+    'STRING' foobar[123];
+    'INTEGER' a;
+    'FOR' a := 
+    foobar 
+    'DO'
+    'BEGIN''END'
+'END'

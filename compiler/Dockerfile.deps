@@ -1,0 +1,12 @@
+# builds a base image with all things needed to (re)build without internet
+FROM gradle:7.4.2-jdk17-alpine
+
+WORKDIR /app
+# the default gradle home (/home/gradle/.gradle) is on a VOLUME so would not keep the downloaded dependencies
+# so move this to /app
+ENV GRADLE_USER_HOME=/app/.gradle
+
+COPY build.gradle .
+
+# install gcc, as and ld for build wrapper "assembleAndLink" and download gradle dependencies
+RUN apk add --no-cache gcc libc-dev binutils && gradle downloadDependencies && gradle --stop

@@ -1,0 +1,6 @@
+'BEGIN'
+  'STRING' x,b[2],
+  c
+  [0];
+  x := b
+'END'

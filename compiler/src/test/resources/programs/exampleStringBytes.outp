@@ -1,0 +1,7 @@
+You can access the bytes of a string
+s[0] = 65
+s[3] = 68
+s[4] = 0
+Shrunk string: AB
+There is a bug in here:
+🪲

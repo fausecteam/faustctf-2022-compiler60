@@ -1,0 +1,7 @@
+'BEGIN'
+    'PROCEDURE' arg(x,y);
+      'INTEGER' x,y;
+      x := x + y
+    ;
+    arg
+'END'
