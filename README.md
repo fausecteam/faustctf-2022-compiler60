@@ -1,5 +1,14 @@
 # compiler60 service
 
+This is the source code for the "compiler60" service from [FAUST CTF 2022](https://2022.faustctf.net).
+
+**As it was written for a CTF service, the code is deliberately insecure and contains exploitable bugs. It
+is provided for educational purposes only, do not even think about (re-) using it for anything productive!**
+
+The code is released under the ISC License, see LICENSE.txt for details.
+
+----
+
 Remember the days when you could invent new features for programming languages like recursion or BNF? To relive those
 distant times we took ALGOL60 and spiced it up a bit. ALGOL60v2 now has safe strings, 64-bit, UTF-8...  
 Make sure to read the specification ([./compiler/ALGOL60v2-spec.md](./compiler/ALGOL60v2-spec.md)) to find out all the
